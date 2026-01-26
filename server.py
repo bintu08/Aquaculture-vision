@@ -16,7 +16,6 @@ import base64
 import tempfile
 import os
 import io
-import subprocess
 from datetime import datetime
 
 # Matplotlib setup - MUST be before pyplot import
@@ -29,39 +28,74 @@ import matplotlib.pyplot as plt
 # ═══════════════════════════════════════════════════════════════════════════════
 
 MODEL_PATH = "weights.pt"
-GOOGLE_DRIVE_FILE_ID = "15DlngSyoJiOFvj2d-33XPtuwJtpYeUQA"
+GOOGLE_DRIVE_FILE_ID = "14VSgbeQJyBizH-wTAq36WTph1miZoG5b"
 
 def download_weights_from_gdrive(file_id: str, destination: str):
     """Download file from Google Drive using gdown"""
     if os.path.exists(destination):
-        # Check if file is valid (not an HTML error page)
-        if os.path.getsize(destination) > 1000000:  # > 1MB means it's likely valid
-            print(f"✓ Weights file already exists: {destination}")
+        file_size = os.path.getsize(destination)
+        if file_size > 1000000:  # > 1MB means it's likely valid
+            print(f"✓ Weights file already exists: {destination} ({file_size} bytes)")
             return True
         else:
-            print(f"⚠ Existing file seems invalid, re-downloading...")
+            print(f"⚠ Existing file too small ({file_size} bytes), re-downloading...")
             os.remove(destination)
     
     print(f"⬇ Downloading weights from Google Drive...")
+    print(f"  File ID: {file_id}")
     
     try:
-        # Use gdown for reliable Google Drive downloads
         import gdown
         url = f"https://drive.google.com/uc?id={file_id}"
-        gdown.download(url, destination, quiet=False)
+        print(f"  URL: {url}")
+        output = gdown.download(url, destination, quiet=False, fuzzy=True)
         
-        if os.path.exists(destination) and os.path.getsize(destination) > 1000000:
-            print(f"✓ Weights downloaded successfully: {destination}")
-            return True
+        if output and os.path.exists(destination):
+            file_size = os.path.getsize(destination)
+            print(f"✓ Downloaded: {destination} ({file_size} bytes)")
+            if file_size > 1000000:
+                return True
+            else:
+                print(f"✗ File too small, might be an error page")
+                return False
         else:
-            print(f"✗ Download failed or file too small")
+            print(f"✗ gdown returned: {output}")
             return False
+            
     except Exception as e:
-        print(f"✗ Failed to download weights: {e}")
-        return False
+        print(f"✗ gdown failed: {e}")
+        
+    # Fallback: try with confirm parameter
+    try:
+        import gdown
+        url = f"https://drive.google.com/uc?id={file_id}&confirm=t"
+        print(f"  Trying fallback URL: {url}")
+        output = gdown.download(url, destination, quiet=False)
+        
+        if output and os.path.exists(destination) and os.path.getsize(destination) > 1000000:
+            print(f"✓ Fallback download successful")
+            return True
+    except Exception as e:
+        print(f"✗ Fallback also failed: {e}")
+    
+    return False
 
 # Download weights if not present
-download_weights_from_gdrive(GOOGLE_DRIVE_FILE_ID, MODEL_PATH)
+print("=" * 60)
+print("INITIALIZING AQUACULTURE VISION API")
+print("=" * 60)
+
+if not download_weights_from_gdrive(GOOGLE_DRIVE_FILE_ID, MODEL_PATH):
+    print("=" * 60)
+    print("ERROR: Could not download weights.pt from Google Drive!")
+    print("Please check:")
+    print("  1. File ID is correct: " + GOOGLE_DRIVE_FILE_ID)
+    print("  2. File is shared as 'Anyone with the link'")
+    print("  3. Google Drive link is accessible")
+    print("=" * 60)
+    raise FileNotFoundError(f"Could not download {MODEL_PATH} from Google Drive")
+
+print(f"Loading YOLO model from {MODEL_PATH}...")
 
 app = FastAPI(
     title="Aquaculture Vision API",
