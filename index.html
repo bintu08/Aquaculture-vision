@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department of Aquaculture and Fisheries | UAPB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --uapb-gold: #CDA000;
+      --uapb-gold-light: #E8C84A;
+      --uapb-gold-dark: #A68300;
+      --uapb-black: #1A1A1A;
+      --uapb-dark: #222222;
+      
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --bg-tertiary: #F1F5F9;
+      
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-tertiary: #94A3B8;
+      
+      --border-light: #E2E8F0;
+      --border-default: #CBD5E1;
+      
+      --accent-blue: #0066FF;
+      --accent-green: #00C48C;
+      --accent-purple: #7B61FF;
+      --accent-orange: #FF6B35;
+      
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    /* UAPB Header */
+    .uapb-header {
+      background: var(--uapb-black);
+      border-bottom: 4px solid var(--uapb-gold);
+    }
+    
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 110px;
+    }
+    
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .dept-logo {
+      height: 100%;
+      max-height: 95px;
+      width: auto;
+      padding: 5px 0;
+    }
+    
+    .header-text h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .header-text p {
+      font-size: 0.95rem;
+      color: var(--uapb-gold);
+      margin-top: 4px;
+    }
+    
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .status-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      color: #E2E8F0;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #64748B;
+    }
+    
+    .status-dot.online { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+    .status-dot.offline { background: #EF4444; }
+    
+    /* Main Navigation - Gold Bar */
+    .main-nav {
+      background: var(--uapb-gold);
+    }
+    
+    .nav-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-tab {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--uapb-black);
+      padding: 16px 28px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    
+    .nav-tab:hover {
+      background: rgba(0,0,0,0.1);
+    }
+    
+    .nav-tab.active {
+      background: rgba(0,0,0,0.15);
+    }
+    
+    /* Sub Navigation for Species */
+    .sub-nav {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .sub-nav-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .sub-nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .sub-nav-tab:hover {
+      color: var(--uapb-gold-dark);
+      background: var(--bg-tertiary);
+    }
+    
+    .sub-nav-tab.active {
+      color: var(--uapb-gold-dark);
+      border-bottom-color: var(--uapb-gold);
+      background: var(--bg-primary);
+    }
+    
+    .sub-nav-tab .scientific-name {
+      font-weight: 700;
+      font-style: italic;
+    }
+    
+    .sub-nav-tab .common-name {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+    
+    .sub-nav-tab.active .common-name {
+      color: var(--text-secondary);
+    }
+    
+    /* Tab Content */
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Species Content */
+    .species-content {
+      display: none;
+    }
+    
+    .species-content.active {
+      display: block;
+    }
+    
+    /* Main Content */
+    .main-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+    
+    /* Page Header */
+    .page-header {
+      margin-bottom: 32px;
+    }
+    
+    .page-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    .page-header h2 span {
+      color: var(--uapb-gold-dark);
+    }
+    
+    .page-header p {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+    }
+    
+    .species-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: rgba(205, 160, 0, 0.1);
+      border: 1px solid var(--uapb-gold);
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      color: var(--uapb-gold-dark);
+      margin-top: 16px;
+    }
+    
+    .species-badge em {
+      font-weight: 600;
+    }
+    
+    /* Analysis Grid */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 24px;
+    }
+    
+    @media (max-width: 1100px) {
+      .analysis-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* Cards */
+    .card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-secondary);
+    }
+    
+    .card-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .card-badge {
+      padding: 4px 10px;
+      background: rgba(205, 160, 0, 0.15);
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--uapb-gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .card-body {
+      padding: 20px;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 1024px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .stats-grid { grid-template-columns: 1fr; } }
+    
+    .stat-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      border-top: 4px solid var(--uapb-gold);
+    }
+    
+    .stat-label {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    
+    .stat-value {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .stat-value .unit {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      margin-left: 4px;
+    }
+    
+    /* Charts Grid */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    @media (max-width: 800px) { .charts-grid { grid-template-columns: 1fr; } }
+    
+    .chart-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 150px;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-md);
+      color: var(--text-tertiary);
+      font-size: 0.85rem;
+    }
+    
+    .chart-body img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .chart-body img:hover {
+      transform: scale(1.02);
+    }
+    
+    /* Upload Zone */
+    .upload-zone {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      border: 2px dashed var(--border-default);
+      border-radius: var(--radius-lg);
+      background: var(--bg-tertiary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--uapb-gold);
+      background: rgba(205, 160, 0, 0.05);
+    }
+    
+    .upload-zone input { display: none; }
+    
+    .upload-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--uapb-gold);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    
+    .upload-icon svg {
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+    
+    .upload-zone h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    
+    .upload-zone p {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+    }
+    
+    /* File Info & Progress */
+    .file-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-md);
+      margin-top: 16px;
+      font-size: 0.85rem;
+    }
+    
+    .file-count { font-weight: 600; }
+    .file-size { color: var(--text-tertiary); font-family: monospace; font-size: 0.75rem; }
+    
+    .progress-container { margin-top: 16px; }
+    
+    .progress-bar {
+      height: 6px;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--uapb-gold);
+      transition: width 0.3s;
+    }
+    
+    .progress-text {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 6px;
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+    }
+    
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: var(--radius-md);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn svg { width: 18px; height: 18px; }
+    
+    .btn-primary {
+      background: var(--uapb-gold);
+      color: var(--uapb-black);
+    }
+    
+    .btn-primary:hover:not(:disabled) {
+      background: var(--uapb-gold-dark);
+    }
+    
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-default);
+    }
+    
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--bg-primary);
+      border-color: var(--uapb-gold);
+    }
+    
+    /* Error Box */
+    .error-box {
+      padding: 14px;
+      background: #FEF2F2;
+      border-left: 4px solid #EF4444;
+      border-radius: var(--radius-md);
+      color: #DC2626;
+      font-size: 0.85rem;
+      margin-top: 16px;
+      display: none;
+    }
+    
+    .error-box.visible { display: block; }
+    
+    /* Results Section */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .section-count {
+      font-size: 0.8rem;
+      color: var(--text-tertiary);
+    }
+    
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    
+    .result-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+    
+    .result-card:hover {
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .result-filename {
+      font-size: 0.8rem;
+      font-weight: 600;
+      max-width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .result-stats {
+      display: flex;
+      gap: 6px;
+    }
+    
+    .result-stat {
+      padding: 3px 8px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+    }
+    
+    .result-stat strong {
+      color: var(--uapb-gold-dark);
+    }
+    
+    .result-image {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .result-image img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .click-hint {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.6rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    
+    .result-image:hover .click-hint { opacity: 1; }
+    
+    .result-data {
+      padding: 10px 16px;
+      background: var(--bg-tertiary);
+      font-family: monospace;
+      font-size: 0.6rem;
+      color: var(--text-secondary);
+      max-height: 50px;
+      overflow-y: auto;
+    }
+    
+    /* Extension Page Styles */
+    .profile-section {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    
+    @media (max-width: 900px) {
+      .profile-section { grid-template-columns: 1fr; }
+    }
+    
+    .profile-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      border-top: 4px solid var(--uapb-gold);
+    }
+    
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      background: var(--uapb-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .profile-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    
+    .profile-title {
+      font-size: 0.9rem;
+      color: var(--uapb-gold-dark);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .profile-dept {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+    
+    .profile-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .profile-link {
+      padding: 10px 16px;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .profile-link:hover {
+      background: var(--uapb-gold);
+      color: var(--uapb-black);
+    }
+    
+    .research-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .research-card {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: all 0.2s;
+    }
+    
+    .research-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--uapb-gold);
+    }
+    
+    .research-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(205, 160, 0, 0.1);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--uapb-gold-dark);
+    }
+    
+    .research-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    
+    .research-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .modal-overlay.active { display: flex; }
+    
+    .modal-content {
+      max-width: 95vw;
+      max-height: 95vh;
+      position: relative;
+    }
+    
+    .modal-content img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: var(--radius-lg);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: -40px; right: 0;
+      background: white;
+      border: none;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .modal-title {
+      color: white;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background: var(--uapb-black);
+      border-top: 4px solid var(--uapb-gold);
+      padding: 24px 0;
+      margin-top: 48px;
+    }
+    
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer-left {
+      font-size: 0.85rem;
+      color: #94A3B8;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-link {
+      font-size: 0.85rem;
+      color: var(--uapb-gold);
+      text-decoration: none;
+    }
+    
+    .footer-link:hover { text-decoration: underline; }
+    
+    /* Spinner */
+    .spinner {
+      width: 18px; height: 18px;
+      border: 2px solid var(--uapb-black);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { animation: fadeIn 0.4s ease forwards; }
+  </style>
+</head>
+<body>
+  <!-- UAPB Header -->
+  <header class="uapb-header">
+    <div class="header-content">
+      <div class="header-left">
+        <img src="/static/UAPB-logo.png" alt="Logo" class="dept-logo">
+        <div class="header-text">
+          <h1>Department of Aquaculture and Fisheries</h1>
+          <p>Fish Nutrigenomics and AI Lab | Dr. Yathish Ramena, Director</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="status-badge">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusLabel">Checking API...</span>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Navigation - Gold Bar -->
+  <nav class="main-nav">
+    <div class="nav-content">
+      <button class="nav-tab active" data-tab="research">Research</button>
+      <button class="nav-tab" data-tab="extension">Extension</button>
+    </div>
+  </nav>
+  
+  <!-- Research Tab Content -->
+  <div id="tab-research" class="tab-content active">
+    <!-- Species Sub-Navigation -->
+    <nav class="sub-nav">
+      <div class="sub-nav-content">
+        <button class="sub-nav-tab active" data-species="vannamei">
+          <span class="scientific-name">L. vannamei</span>
+          <span class="common-name">(Pacific White Shrimp)</span>
+        </button>
+        <button class="sub-nav-tab" data-species="monodon">
+          <span class="scientific-name">P. monodon</span>
+          <span class="common-name">(Tiger Shrimp)</span>
+        </button>
+        <button class="sub-nav-tab" data-species="bass">
+          <span class="scientific-name">M. salmoides</span>
+          <span class="common-name">(Largemouth Bass)</span>
+        </button>
+        <button class="sub-nav-tab" data-species="prawn">
+          <span class="scientific-name">M. rosenbergii</span>
+          <span class="common-name">(Giant River Prawn)</span>
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Species Analysis Panels -->
+    <div id="species-vannamei" class="species-content active">
+      <div class="main-content">
+        <div class="page-header">
+          <h2><em>Litopenaeus vannamei</em> <span>Analysis</span></h2>
+          <p>AI-powered detection, length measurement, and weight estimation using computer vision and deep learning.</p>
+          <div class="species-badge">Pacific White Shrimp — <em>L. vannamei</em></div>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Total Detected</div><div class="stat-value" id="statCount-vannamei">—</div></div>
+          <div class="stat-card"><div class="stat-label">Avg Length</div><div class="stat-value"><span id="statLength-vannamei">—</span><span class="unit">mm</span></div></div>
+          <div class="stat-card"><div class="stat-label">Avg Weight</div><div class="stat-value"><span id="statWeight-vannamei">—</span><span class="unit">g</span></div></div>
+          <div class="stat-card"><div class="stat-label">Total Biomass</div><div class="stat-value"><span id="statBiomass-vannamei">—</span><span class="unit">g</span></div></div>
+        </div>
+        
+        <div class="analysis-grid">
+          <div>
+            <div class="charts-grid">
+              <div class="card"><div class="card-header"><span class="card-title">Length Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="lengthChart-vannamei"><div class="chart-placeholder">Upload images to generate</div></div></div>
+              <div class="card"><div class="card-header"><span class="card-title">Weight Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="weightChart-vannamei"><div class="chart-placeholder">Upload images to generate</div></div></div>
+            </div>
+            <div class="section-header"><h3 class="section-title">Detection Results</h3><span class="section-count" id="processedCount-vannamei">0 images processed</span></div>
+            <div class="results-grid" id="resultsGrid-vannamei"></div>
+          </div>
+          <div>
+            <div class="card">
+              <div class="card-header"><span class="card-title">Upload Images</span><span class="card-badge">Analysis</span></div>
+              <div class="card-body">
+                <label class="upload-zone" id="dropzone-vannamei"><input type="file" id="fileInput-vannamei" multiple accept="image/*"><div class="upload-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><h3>Drop images here</h3><p>or click to browse</p></label>
+                <div class="file-info"><span class="file-count" id="fileCount-vannamei">No files selected</span><span class="file-size" id="fileSize-vannamei">—</span></div>
+                <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="progressFill-vannamei"></div></div><div class="progress-text"><span id="progressStatus-vannamei">Ready</span><span id="progressPercent-vannamei">0%</span></div></div>
+                <div class="button-group"><button class="btn btn-primary" id="analyzeBtn-vannamei" onclick="runAnalysis('vannamei')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Analyze</button><button class="btn btn-secondary" onclick="resetTab('vannamei')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button></div>
+                <div class="error-box" id="errorBox-vannamei"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- P. monodon -->
+    <div id="species-monodon" class="species-content">
+      <div class="main-content">
+        <div class="page-header">
+          <h2><em>Penaeus monodon</em> <span>Analysis</span></h2>
+          <p>AI-powered detection and biomass estimation for Black Tiger Shrimp aquaculture research.</p>
+          <div class="species-badge">Tiger Shrimp — <em>P. monodon</em></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Total Detected</div><div class="stat-value" id="statCount-monodon">—</div></div>
+          <div class="stat-card"><div class="stat-label">Avg Length</div><div class="stat-value"><span id="statLength-monodon">—</span><span class="unit">mm</span></div></div>
+          <div class="stat-card"><div class="stat-label">Avg Weight</div><div class="stat-value"><span id="statWeight-monodon">—</span><span class="unit">g</span></div></div>
+          <div class="stat-card"><div class="stat-label">Total Biomass</div><div class="stat-value"><span id="statBiomass-monodon">—</span><span class="unit">g</span></div></div>
+        </div>
+        <div class="analysis-grid">
+          <div>
+            <div class="charts-grid">
+              <div class="card"><div class="card-header"><span class="card-title">Length Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="lengthChart-monodon"><div class="chart-placeholder">Upload images to generate</div></div></div>
+              <div class="card"><div class="card-header"><span class="card-title">Weight Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="weightChart-monodon"><div class="chart-placeholder">Upload images to generate</div></div></div>
+            </div>
+            <div class="section-header"><h3 class="section-title">Detection Results</h3><span class="section-count" id="processedCount-monodon">0 images processed</span></div>
+            <div class="results-grid" id="resultsGrid-monodon"></div>
+          </div>
+          <div>
+            <div class="card">
+              <div class="card-header"><span class="card-title">Upload Images</span><span class="card-badge">Analysis</span></div>
+              <div class="card-body">
+                <label class="upload-zone" id="dropzone-monodon"><input type="file" id="fileInput-monodon" multiple accept="image/*"><div class="upload-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><h3>Drop images here</h3><p>or click to browse</p></label>
+                <div class="file-info"><span class="file-count" id="fileCount-monodon">No files selected</span><span class="file-size" id="fileSize-monodon">—</span></div>
+                <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="progressFill-monodon"></div></div><div class="progress-text"><span id="progressStatus-monodon">Ready</span><span id="progressPercent-monodon">0%</span></div></div>
+                <div class="button-group"><button class="btn btn-primary" id="analyzeBtn-monodon" onclick="runAnalysis('monodon')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Analyze</button><button class="btn btn-secondary" onclick="resetTab('monodon')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button></div>
+                <div class="error-box" id="errorBox-monodon"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- M. salmoides -->
+    <div id="species-bass" class="species-content">
+      <div class="main-content">
+        <div class="page-header">
+          <h2><em>Micropterus salmoides</em> <span>Analysis</span></h2>
+          <p>AI-powered detection and biomass estimation for Largemouth Bass aquaculture research.</p>
+          <div class="species-badge">Largemouth Bass — <em>M. salmoides</em></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Total Detected</div><div class="stat-value" id="statCount-bass">—</div></div>
+          <div class="stat-card"><div class="stat-label">Avg Length</div><div class="stat-value"><span id="statLength-bass">—</span><span class="unit">mm</span></div></div>
+          <div class="stat-card"><div class="stat-label">Avg Weight</div><div class="stat-value"><span id="statWeight-bass">—</span><span class="unit">g</span></div></div>
+          <div class="stat-card"><div class="stat-label">Total Biomass</div><div class="stat-value"><span id="statBiomass-bass">—</span><span class="unit">g</span></div></div>
+        </div>
+        <div class="analysis-grid">
+          <div>
+            <div class="charts-grid">
+              <div class="card"><div class="card-header"><span class="card-title">Length Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="lengthChart-bass"><div class="chart-placeholder">Upload images to generate</div></div></div>
+              <div class="card"><div class="card-header"><span class="card-title">Weight Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="weightChart-bass"><div class="chart-placeholder">Upload images to generate</div></div></div>
+            </div>
+            <div class="section-header"><h3 class="section-title">Detection Results</h3><span class="section-count" id="processedCount-bass">0 images processed</span></div>
+            <div class="results-grid" id="resultsGrid-bass"></div>
+          </div>
+          <div>
+            <div class="card">
+              <div class="card-header"><span class="card-title">Upload Images</span><span class="card-badge">Analysis</span></div>
+              <div class="card-body">
+                <label class="upload-zone" id="dropzone-bass"><input type="file" id="fileInput-bass" multiple accept="image/*"><div class="upload-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><h3>Drop images here</h3><p>or click to browse</p></label>
+                <div class="file-info"><span class="file-count" id="fileCount-bass">No files selected</span><span class="file-size" id="fileSize-bass">—</span></div>
+                <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="progressFill-bass"></div></div><div class="progress-text"><span id="progressStatus-bass">Ready</span><span id="progressPercent-bass">0%</span></div></div>
+                <div class="button-group"><button class="btn btn-primary" id="analyzeBtn-bass" onclick="runAnalysis('bass')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Analyze</button><button class="btn btn-secondary" onclick="resetTab('bass')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button></div>
+                <div class="error-box" id="errorBox-bass"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- M. rosenbergii -->
+    <div id="species-prawn" class="species-content">
+      <div class="main-content">
+        <div class="page-header">
+          <h2><em>Macrobrachium rosenbergii</em> <span>Analysis</span></h2>
+          <p>AI-powered detection and biomass estimation for Giant Freshwater Prawn aquaculture research.</p>
+          <div class="species-badge">Giant River Prawn — <em>M. rosenbergii</em></div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Total Detected</div><div class="stat-value" id="statCount-prawn">—</div></div>
+          <div class="stat-card"><div class="stat-label">Avg Length</div><div class="stat-value"><span id="statLength-prawn">—</span><span class="unit">mm</span></div></div>
+          <div class="stat-card"><div class="stat-label">Avg Weight</div><div class="stat-value"><span id="statWeight-prawn">—</span><span class="unit">g</span></div></div>
+          <div class="stat-card"><div class="stat-label">Total Biomass</div><div class="stat-value"><span id="statBiomass-prawn">—</span><span class="unit">g</span></div></div>
+        </div>
+        <div class="analysis-grid">
+          <div>
+            <div class="charts-grid">
+              <div class="card"><div class="card-header"><span class="card-title">Length Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="lengthChart-prawn"><div class="chart-placeholder">Upload images to generate</div></div></div>
+              <div class="card"><div class="card-header"><span class="card-title">Weight Distribution</span><span class="card-badge">Histogram</span></div><div class="card-body" id="weightChart-prawn"><div class="chart-placeholder">Upload images to generate</div></div></div>
+            </div>
+            <div class="section-header"><h3 class="section-title">Detection Results</h3><span class="section-count" id="processedCount-prawn">0 images processed</span></div>
+            <div class="results-grid" id="resultsGrid-prawn"></div>
+          </div>
+          <div>
+            <div class="card">
+              <div class="card-header"><span class="card-title">Upload Images</span><span class="card-badge">Analysis</span></div>
+              <div class="card-body">
+                <label class="upload-zone" id="dropzone-prawn"><input type="file" id="fileInput-prawn" multiple accept="image/*"><div class="upload-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div><h3>Drop images here</h3><p>or click to browse</p></label>
+                <div class="file-info"><span class="file-count" id="fileCount-prawn">No files selected</span><span class="file-size" id="fileSize-prawn">—</span></div>
+                <div class="progress-container"><div class="progress-bar"><div class="progress-fill" id="progressFill-prawn"></div></div><div class="progress-text"><span id="progressStatus-prawn">Ready</span><span id="progressPercent-prawn">0%</span></div></div>
+                <div class="button-group"><button class="btn btn-primary" id="analyzeBtn-prawn" onclick="runAnalysis('prawn')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Analyze</button><button class="btn btn-secondary" onclick="resetTab('prawn')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>Reset</button></div>
+                <div class="error-box" id="errorBox-prawn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Extension Tab Content -->
+  <div id="tab-extension" class="tab-content">
+    <div class="main-content">
+      <div class="page-header">
+        <h2>Extension <span>Services</span></h2>
+        <p>Outreach programs, industry partnerships, and technology transfer from the Fish Nutrigenomics and AI Lab.</p>
+      </div>
+      
+      <div class="profile-section">
+        <div class="profile-card">
+          <div class="profile-avatar">YR</div>
+          <div class="profile-name">Dr. Yathish Ramena</div>
+          <div class="profile-title">Director, Department of Aquaculture and Fisheries</div>
+          <div class="profile-dept">Fish Nutrigenomics and AI Lab<br>University of Arkansas at Pine Bluff</div>
+          <div class="profile-links">
+            <a href="https://www.uapb.edu" target="_blank" class="profile-link">🎓 UAPB Faculty Profile</a>
+            <a href="mailto:ramenay@uapb.edu" class="profile-link">✉️ ramenay@uapb.edu</a>
+          </div>
+        </div>
+        
+        <div>
+          <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; margin-bottom: 20px; text-transform: uppercase;">Research Focus Areas</h3>
+          <div class="research-areas">
+            <div class="research-card">
+              <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+              <h4>Fish Nutrigenomics</h4>
+              <p>Investigating the interaction between nutrition and gene expression in aquaculture species to optimize growth and health outcomes.</p>
+            </div>
+            <div class="research-card">
+              <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <h4>AI & Computer Vision</h4>
+              <p>Developing deep learning models for automated species detection, biomass estimation, and health monitoring in aquaculture systems.</p>
+            </div>
+            <div class="research-card">
+              <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+              <h4>Precision Aquaculture</h4>
+              <p>Integrating IoT sensors, real-time monitoring, and predictive analytics for sustainable and efficient aquaculture production.</p>
+            </div>
+            <div class="research-card">
+              <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <h4>Growth Modeling</h4>
+              <p>Developing mathematical models for predicting growth trajectories and optimizing feeding strategies in commercial aquaculture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.2rem; margin: 40px 0 20px; text-transform: uppercase;">Extension Programs</h3>
+      <div class="research-areas">
+        <div class="research-card">
+          <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h4>Industry Training Workshops</h4>
+          <p>Hands-on training sessions for aquaculture farmers on best practices, disease management, and technology adoption.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg></div>
+          <h4>Technology Transfer</h4>
+          <p>Bridging research and industry by providing AI-powered tools and decision support systems to aquaculture producers.</p>
+        </div>
+        <div class="research-card">
+          <div class="research-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div>
+          <h4>Educational Resources</h4>
+          <p>Developing curricula, online courses, and educational materials for the next generation of aquaculture professionals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Image Modal -->
+  <div class="modal-overlay" id="imageModal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <img id="modalImage" src="" alt="Expanded view">
+      <div class="modal-title" id="modalTitle"></div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">© 2026 Department of Aquaculture and Fisheries • University of Arkansas at Pine Bluff</div>
+      <div class="footer-links">
+        <a href="/docs" class="footer-link">API Docs</a>
+        <a href="https://www.uapb.edu" class="footer-link">UAPB.edu</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    
+    // Modal
+    function openModal(src, title) {
+      $('modalImage').src = src;
+      $('modalTitle').textContent = title || '';
+      $('imageModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      $('imageModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    
+    // Main Tab Navigation
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        $('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+    
+    // Species Sub-Navigation
+    document.querySelectorAll('.sub-nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.sub-nav-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.species-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        $('species-' + tab.dataset.species).classList.add('active');
+      });
+    });
+    
+    // Species setup
+    const species = ['vannamei', 'monodon', 'bass', 'prawn'];
+    species.forEach(sp => {
+      const fileInput = $('fileInput-' + sp);
+      const dropzone = $('dropzone-' + sp);
+      fileInput.addEventListener('change', () => updateFileInfo(sp));
+      dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+      dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
+      dropzone.addEventListener('drop', e => {
+        e.preventDefault();
+        dropzone.classList.remove('drag-over');
+        fileInput.files = e.dataTransfer.files;
+        updateFileInfo(sp);
+      });
+    });
+    
+    const formatBytes = b => {
+      if (b === 0) return '0 B';
+      const k = 1024, s = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(b) / Math.log(k));
+      return parseFloat((b / Math.pow(k, i)).toFixed(2)) + ' ' + s[i];
+    };
+    
+    function updateFileInfo(sp) {
+      const files = $('fileInput-' + sp).files;
+      if (!files.length) { $('fileCount-' + sp).textContent = 'No files selected'; $('fileSize-' + sp).textContent = '—'; return; }
+      let size = 0; for (const f of files) size += f.size;
+      $('fileCount-' + sp).textContent = files.length + ' file' + (files.length > 1 ? 's' : '') + ' selected';
+      $('fileSize-' + sp).textContent = formatBytes(size);
+      showError(sp, '');
+    }
+    
+    function setProgress(sp, pct, status) {
+      $('progressFill-' + sp).style.width = pct + '%';
+      $('progressPercent-' + sp).textContent = pct + '%';
+      if (status) $('progressStatus-' + sp).textContent = status;
+    }
+    
+    function showError(sp, msg) {
+      const box = $('errorBox-' + sp);
+      box.textContent = msg;
+      box.classList.toggle('visible', !!msg);
+    }
+    
+    async function checkHealth() {
+      try {
+        await fetch('/health');
+        $('statusDot').className = 'status-dot online';
+        $('statusLabel').textContent = 'API Online';
+      } catch {
+        $('statusDot').className = 'status-dot offline';
+        $('statusLabel').textContent = 'API Offline';
+      }
+    }
+    checkHealth(); setInterval(checkHealth, 10000);
+    
+    async function runAnalysis(sp) {
+      const files = $('fileInput-' + sp).files;
+      if (!files.length) { showError(sp, 'Please select images first.'); return; }
+      const btn = $('analyzeBtn-' + sp);
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Analyzing...';
+      showError(sp, '');
+      setProgress(sp, 10, 'Uploading...');
+      const form = new FormData();
+      for (const f of files) form.append('files', f);
+      try {
+        setProgress(sp, 30, 'Processing...');
+        const res = await fetch('/detect?species=' + sp, { method: 'POST', body: form });
+        setProgress(sp, 70, 'Analyzing...');
+        const text = await res.text();
+        let data; try { data = JSON.parse(text); } catch { throw new Error(text); }
+        if (!res.ok) throw new Error(data.detail || data.error || 'Failed');
+        setProgress(sp, 90, 'Rendering...');
+        displayResults(sp, data);
+        setProgress(sp, 100, 'Complete ✓');
+      } catch (err) {
+        showError(sp, err.message);
+        setProgress(sp, 0, 'Error');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Analyze';
+        setTimeout(() => setProgress(sp, 0, 'Ready'), 2000);
+      }
+    }
+    
+    function displayResults(sp, data) {
+      const s = data.overall_summary || {};
+      const h = data.histograms || {};
+      const imgs = data.per_image || [];
+      $('statCount-' + sp).textContent = s.total_specimens ?? data.overall_total_shrimp ?? '—';
+      $('statLength-' + sp).textContent = s.average_length_mm ?? data.overall_average_length_mm ?? '—';
+      $('statWeight-' + sp).textContent = s.average_weight_g ?? '—';
+      $('statBiomass-' + sp).textContent = s.total_biomass_g ?? '—';
+      if (h.length_histogram_base64 || data.histogram_png_base64) {
+        const src = 'data:image/png;base64,' + (h.length_histogram_base64 || data.histogram_png_base64);
+        $('lengthChart-' + sp).innerHTML = '<img src="' + src + '" onclick="openModal(\'' + src + '\', \'Length Distribution\')">';
+      }
+      if (h.weight_histogram_base64) {
+        const src = 'data:image/png;base64,' + h.weight_histogram_base64;
+        $('weightChart-' + sp).innerHTML = '<img src="' + src + '" onclick="openModal(\'' + src + '\', \'Weight Distribution\')">';
+      }
+      $('processedCount-' + sp).textContent = imgs.length + ' image' + (imgs.length !== 1 ? 's' : '') + ' processed';
+      const grid = $('resultsGrid-' + sp);
+      grid.innerHTML = '';
+      imgs.forEach((item, i) => {
+        const card = document.createElement('div');
+        card.className = 'result-card animate-in';
+        card.style.animationDelay = (i * 80) + 'ms';
+        if (item.error) {
+          card.innerHTML = '<div class="result-header"><span class="result-filename">' + (item.filename || 'Error') + '</span></div><div style="padding:16px;color:#DC2626;font-size:0.85rem;">' + item.error + '</div>';
+        } else {
+          const cnt = item.specimen_count ?? item.shrimp_count ?? 0;
+          const avg = item.summary?.average_length_mm ?? item.average_length_mm ?? 0;
+          const wgt = item.summary?.average_weight_g ?? 0;
+          const lens = item.weights_g?.map((w,j) => item.lengths_mm[j] + 'mm/' + w + 'g') || item.lengths_mm?.map(l => l + 'mm') || [];
+          const imgSrc = item.annotated_image_png_base64 ? 'data:image/png;base64,' + item.annotated_image_png_base64 : '';
+          card.innerHTML = '<div class="result-header"><span class="result-filename">' + (item.filename || 'Image') + '</span><div class="result-stats"><span class="result-stat">Count: <strong>' + cnt + '</strong></span><span class="result-stat"><strong>' + avg + '</strong>mm</span>' + (wgt ? '<span class="result-stat"><strong>' + wgt + '</strong>g</span>' : '') + '</div></div>' + (imgSrc ? '<div class="result-image" onclick="openModal(\'' + imgSrc + '\', \'' + (item.filename || 'Result') + '\')"><img src="' + imgSrc + '"><span class="click-hint">Click to expand</span></div>' : '') + (lens.length ? '<div class="result-data">' + lens.join(' • ') + '</div>' : '');
+        }
+        grid.appendChild(card);
+      });
+    }
+    
+    function resetTab(sp) {
+      $('fileInput-' + sp).value = '';
+      $('fileCount-' + sp).textContent = 'No files selected';
+      $('fileSize-' + sp).textContent = '—';
+      setProgress(sp, 0, 'Ready');
+      showError(sp, '');
+      ['statCount', 'statLength', 'statWeight', 'statBiomass'].forEach(id => { const el = $(id + '-' + sp); if (el) el.textContent = '—'; });
+      $('lengthChart-' + sp).innerHTML = '<div class="chart-placeholder">Upload images to generate</div>';
+      $('weightChart-' + sp).innerHTML = '<div class="chart-placeholder">Upload images to generate</div>';
+      $('resultsGrid-' + sp).innerHTML = '';
+      $('processedCount-' + sp).textContent = '0 images processed';
+    }
+  </script>
+</body>
+</html>
