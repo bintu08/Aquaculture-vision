@@ -16,7 +16,7 @@ import base64
 import tempfile
 import os
 import io
-import requests
+import subprocess
 from datetime import datetime
 
 # Matplotlib setup - MUST be before pyplot import
@@ -32,33 +32,30 @@ MODEL_PATH = "weights.pt"
 GOOGLE_DRIVE_FILE_ID = "15DlngSyoJiOFvj2d-33XPtuwJtpYeUQA"
 
 def download_weights_from_gdrive(file_id: str, destination: str):
-    """Download file from Google Drive"""
+    """Download file from Google Drive using gdown"""
     if os.path.exists(destination):
-        print(f"✓ Weights file already exists: {destination}")
-        return True
+        # Check if file is valid (not an HTML error page)
+        if os.path.getsize(destination) > 1000000:  # > 1MB means it's likely valid
+            print(f"✓ Weights file already exists: {destination}")
+            return True
+        else:
+            print(f"⚠ Existing file seems invalid, re-downloading...")
+            os.remove(destination)
     
     print(f"⬇ Downloading weights from Google Drive...")
     
-    URL = "https://drive.google.com/uc?export=download&confirm=1"
-    session = requests.Session()
-    
     try:
-        response = session.get(URL, params={"id": file_id}, stream=True)
+        # Use gdown for reliable Google Drive downloads
+        import gdown
+        url = f"https://drive.google.com/uc?id={file_id}"
+        gdown.download(url, destination, quiet=False)
         
-        # Check for virus scan warning page (large files)
-        for key, value in response.cookies.items():
-            if key.startswith("download_warning"):
-                response = session.get(URL, params={"id": file_id, "confirm": value}, stream=True)
-                break
-        
-        # Save file
-        with open(destination, "wb") as f:
-            for chunk in response.iter_content(32768):
-                if chunk:
-                    f.write(chunk)
-        
-        print(f"✓ Weights downloaded successfully: {destination}")
-        return True
+        if os.path.exists(destination) and os.path.getsize(destination) > 1000000:
+            print(f"✓ Weights downloaded successfully: {destination}")
+            return True
+        else:
+            print(f"✗ Download failed or file too small")
+            return False
     except Exception as e:
         print(f"✗ Failed to download weights: {e}")
         return False
