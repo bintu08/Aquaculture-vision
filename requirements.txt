@@ -6,4 +6,4 @@ numpy
 matplotlib
 pillow
 python-multipart
-requests
+gdown
