@@ -119,7 +119,7 @@ app.add_middleware(
 # ═══════════════════════════════════════════════════════════════════════════════
 
 MODEL_PATH = "weights.pt"
-PIXELS_PER_MM = 2.5
+PIXELS_PER_MM = 6.5
 CONF_THRESHOLD = 0.30
 MASK_ALPHA = 0.4
 
