@@ -53,9 +53,10 @@
     
     /* UAPB Header */
     .uapb-header {
-      background: var(--uapb-black);
-      border-bottom: 4px solid var(--uapb-gold);
-    }
+  background: linear-gradient(to right, var(--uapb-black) 0%, var(--uapb-black) 60%, #2d3748 100%);
+  border-bottom: 4px solid var(--uapb-gold);
+}
+    
     
     .header-content {
       max-width: 1400px;
@@ -98,8 +99,35 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
+    
+   .partner-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.partner-logo:hover {
+  opacity: 0.85;
+}
+
+.partner-logo img {
+  height: 55px;
+  width: auto;
+}
+
+.partner-label {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
     
     .status-badge {
       display: flex;
@@ -697,8 +725,8 @@
     }
     
     .profile-avatar {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       background: var(--uapb-gold);
       border-radius: 50%;
       display: flex;
@@ -709,6 +737,15 @@
       font-size: 3rem;
       font-weight: 700;
       color: white;
+      overflow: hidden;
+      border: 4px solid var(--uapb-gold);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .profile-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
     .profile-name {
@@ -903,6 +940,10 @@
         </div>
       </div>
       <div class="header-right">
+        <a href="https://aralliance.org" target="_blank" class="partner-logo" title="Arkansas Research Alliance">
+          <img src="/static/ara-logo.png" alt="Arkansas Research Alliance">
+          <span class="partner-label">Research Partner</span>
+        </a>
         <div class="status-badge">
           <span id="statusDot" class="status-dot"></span>
           <span id="statusLabel">Checking API...</span>
@@ -1112,7 +1153,9 @@
       
       <div class="profile-section">
         <div class="profile-card">
-          <div class="profile-avatar">YR</div>
+          <div class="profile-avatar">
+            <img src="/static/dr-ramena.png" alt="Dr. Yathish Ramena" onerror="this.style.display='none'; this.parentElement.innerHTML='YR';">
+          </div>
           <div class="profile-name">Dr. Yathish Ramena</div>
           <div class="profile-title">Director, Department of Aquaculture and Fisheries</div>
           <div class="profile-dept">Fish Nutrigenomics and AI Lab<br>University of Arkansas at Pine Bluff</div>
@@ -1364,3 +1407,4 @@
   </script>
 </body>
 </html>
+
