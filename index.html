@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Department of Aquaculture and Fisheries | UAPB</title>
+  <title>Aquaculture Species Analysis</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --uapb-gold: #CDA000;
-      --uapb-gold-light: #E8C84A;
-      --uapb-gold-dark: #A68300;
-      --uapb-black: #1A1A1A;
-      --uapb-dark: #222222;
+      --uapb-gold: #E85D04;
+      --uapb-gold-light: #F48C06;
+      --uapb-gold-dark: #D45A04;
+      --uapb-black: #FFFFFF;
+      --uapb-dark: #F8F9FA;
       
       --bg-primary: #FFFFFF;
       --bg-secondary: #F8FAFC;
@@ -53,9 +53,10 @@
     
     /* UAPB Header */
     .uapb-header {
-  background: linear-gradient(to right, var(--uapb-black) 0%, var(--uapb-black) 60%, #2d3748 100%);
-  border-bottom: 4px solid var(--uapb-gold);
-}
+      background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 60%, #F8F9FA 100%);
+      border-bottom: 4px solid var(--uapb-gold);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
     
     
     .header-content {
@@ -85,14 +86,14 @@
       font-family: 'Oswald', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
-      color: #FFFFFF;
+      color: var(--uapb-gold);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
     
     .header-text p {
       font-size: 0.95rem;
-      color: var(--uapb-gold);
+      color: var(--text-secondary);
       margin-top: 4px;
     }
     
@@ -123,7 +124,7 @@
 
 .partner-label {
   font-size: 0.6rem;
-  color: rgba(255,255,255,0.7);
+  color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -134,10 +135,10 @@
       align-items: center;
       gap: 8px;
       padding: 8px 16px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(232, 93, 4, 0.1);
       border-radius: var(--radius-full);
       font-size: 0.8rem;
-      color: #E2E8F0;
+      color: var(--text-secondary);
     }
     
     .status-dot {
@@ -150,7 +151,7 @@
     .status-dot.online { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
     .status-dot.offline { background: #EF4444; }
     
-    /* Main Navigation - Gold Bar */
+    /* Main Navigation - Orange Bar */
     .main-nav {
       background: var(--uapb-gold);
     }
@@ -169,7 +170,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--uapb-black);
+      color: #FFFFFF;
       padding: 16px 28px;
       border: none;
       background: none;
@@ -179,11 +180,11 @@
     }
     
     .nav-tab:hover {
-      background: rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.2);
     }
     
     .nav-tab.active {
-      background: rgba(0,0,0,0.15);
+      background: rgba(255,255,255,0.25);
     }
     
     /* Sub Navigation for Species */
@@ -299,7 +300,7 @@
       align-items: center;
       gap: 8px;
       padding: 10px 18px;
-      background: rgba(205, 160, 0, 0.1);
+      background: rgba(232, 93, 4, 0.1);
       border: 1px solid var(--uapb-gold);
       border-radius: var(--radius-full);
       font-size: 0.9rem;
@@ -351,7 +352,7 @@
     
     .card-badge {
       padding: 4px 10px;
-      background: rgba(205, 160, 0, 0.15);
+      background: rgba(232, 93, 4, 0.15);
       border-radius: var(--radius-full);
       font-size: 0.65rem;
       font-weight: 600;
@@ -457,7 +458,7 @@
     
     .upload-zone:hover, .upload-zone.drag-over {
       border-color: var(--uapb-gold);
-      background: rgba(205, 160, 0, 0.05);
+      background: rgba(232, 93, 4, 0.05);
     }
     
     .upload-zone input { display: none; }
@@ -560,7 +561,7 @@
     
     .btn-primary {
       background: var(--uapb-gold);
-      color: var(--uapb-black);
+      color: #FFFFFF;
     }
     
     .btn-primary:hover:not(:disabled) {
@@ -787,7 +788,7 @@
     
     .profile-link:hover {
       background: var(--uapb-gold);
-      color: var(--uapb-black);
+      color: #FFFFFF;
     }
     
     .research-areas {
@@ -812,7 +813,7 @@
     .research-icon {
       width: 48px;
       height: 48px;
-      background: rgba(205, 160, 0, 0.1);
+      background: rgba(232, 93, 4, 0.1);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
@@ -881,7 +882,7 @@
     
     /* Footer */
     .footer {
-      background: var(--uapb-black);
+      background: #FFFFFF;
       border-top: 4px solid var(--uapb-gold);
       padding: 24px 0;
       margin-top: 48px;
@@ -898,7 +899,7 @@
     
     .footer-left {
       font-size: 0.85rem;
-      color: #94A3B8;
+      color: var(--text-secondary);
     }
     
     .footer-links {
@@ -917,7 +918,7 @@
     /* Spinner */
     .spinner {
       width: 18px; height: 18px;
-      border: 2px solid var(--uapb-black);
+      border: 2px solid #FFFFFF;
       border-top-color: transparent;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
@@ -929,13 +930,13 @@
   </style>
 </head>
 <body>
-  <!-- UAPB Header -->
+  <!-- Header -->
   <header class="uapb-header">
     <div class="header-content">
       <div class="header-left">
         <img src="/static/UAPB-logo.png" alt="Logo" class="dept-logo">
         <div class="header-text">
-          <h1>Department of Aquaculture and Fisheries</h1>
+          <h1>Aquaculture Species Analysis</h1>
           <p>Fish Nutrigenomics and AI Lab | Dr. Yathish Ramena, Director</p>
         </div>
       </div>
@@ -952,7 +953,7 @@
     </div>
   </header>
   
-  <!-- Main Navigation - Gold Bar -->
+  <!-- Main Navigation - Orange Bar -->
   <nav class="main-nav">
     <div class="nav-content">
       <button class="nav-tab active" data-tab="research">Research</button>
@@ -1157,10 +1158,9 @@
             <img src="/static/dr-ramena.png" alt="Dr. Yathish Ramena" onerror="this.style.display='none'; this.parentElement.innerHTML='YR';">
           </div>
           <div class="profile-name">Dr. Yathish Ramena</div>
-          <div class="profile-title">Director, Department of Aquaculture and Fisheries</div>
-          <div class="profile-dept">Fish Nutrigenomics and AI Lab<br>University of Arkansas at Pine Bluff</div>
+          <div class="profile-title">Director, Fish Nutrigenomics and AI Lab</div>
+          <div class="profile-dept">Aquaculture Species Analysis</div>
           <div class="profile-links">
-            <a href="https://www.uapb.edu" target="_blank" class="profile-link">🎓 UAPB Faculty Profile</a>
             <a href="mailto:ramenay@uapb.edu" class="profile-link">✉️ ramenay@uapb.edu</a>
           </div>
         </div>
@@ -1225,10 +1225,9 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-left">© 2026 Department of Aquaculture and Fisheries • University of Arkansas at Pine Bluff</div>
+      <div class="footer-left">© 2026 Aquaculture Species Analysis • Fish Nutrigenomics and AI Lab</div>
       <div class="footer-links">
         <a href="/docs" class="footer-link">API Docs</a>
-        <a href="https://www.uapb.edu" class="footer-link">UAPB.edu</a>
       </div>
     </div>
   </footer>
@@ -1407,4 +1406,6 @@
   </script>
 </body>
 </html>
+
+
 
