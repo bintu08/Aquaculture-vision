@@ -9,11 +9,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --uapb-gold: #E85D04;
-      --uapb-gold-light: #F48C06;
-      --uapb-gold-dark: #D45A04;
-      --uapb-black: #FFFFFF;
-      --uapb-dark: #F8F9FA;
+      --uapb-gold: #E8A317;
+      --uapb-gold-light: #F0B830;
+      --uapb-gold-dark: #D4950F;
+      --uapb-black: #1A1A2E;
+      --uapb-dark: #16213E;
       
       --bg-primary: #FFFFFF;
       --bg-secondary: #F8FAFC;
@@ -51,11 +51,11 @@
       line-height: 1.6;
     }
     
-    /* UAPB Header */
+    /* UAPB Header - Black with Gradient Fade */
     .uapb-header {
-      background: linear-gradient(to right, #FFFFFF 0%, #FFFFFF 60%, #F8F9FA 100%);
+      background: linear-gradient(to right, var(--uapb-black) 0%, var(--uapb-black) 50%, #2d3748 100%);
       border-bottom: 4px solid var(--uapb-gold);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
     
     
@@ -93,7 +93,7 @@
     
     .header-text p {
       font-size: 0.95rem;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.7);
       margin-top: 4px;
     }
     
@@ -103,42 +103,42 @@
       gap: 20px;
     }
     
-   .partner-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 16px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
+    .partner-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
 
-.partner-logo:hover {
-  opacity: 0.85;
-}
+    .partner-logo:hover {
+      opacity: 0.85;
+    }
 
-.partner-logo img {
-  height: 55px;
-  width: auto;
-}
+    .partner-logo img {
+      height: 55px;
+      width: auto;
+    }
 
-.partner-label {
-  font-size: 0.6rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-}
+    .partner-label {
+      font-size: 0.6rem;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
     
     .status-badge {
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 8px 16px;
-      background: rgba(232, 93, 4, 0.1);
+      background: rgba(232, 163, 23, 0.15);
       border-radius: var(--radius-full);
       font-size: 0.8rem;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.8);
     }
     
     .status-dot {
@@ -151,7 +151,7 @@
     .status-dot.online { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
     .status-dot.offline { background: #EF4444; }
     
-    /* Main Navigation - Orange Bar */
+    /* Main Navigation - Gold Bar */
     .main-nav {
       background: var(--uapb-gold);
     }
@@ -300,7 +300,7 @@
       align-items: center;
       gap: 8px;
       padding: 10px 18px;
-      background: rgba(232, 93, 4, 0.1);
+      background: rgba(232, 163, 23, 0.1);
       border: 1px solid var(--uapb-gold);
       border-radius: var(--radius-full);
       font-size: 0.9rem;
@@ -352,7 +352,7 @@
     
     .card-badge {
       padding: 4px 10px;
-      background: rgba(232, 93, 4, 0.15);
+      background: rgba(232, 163, 23, 0.15);
       border-radius: var(--radius-full);
       font-size: 0.65rem;
       font-weight: 600;
@@ -458,7 +458,7 @@
     
     .upload-zone:hover, .upload-zone.drag-over {
       border-color: var(--uapb-gold);
-      background: rgba(232, 93, 4, 0.05);
+      background: rgba(232, 163, 23, 0.05);
     }
     
     .upload-zone input { display: none; }
@@ -813,7 +813,7 @@
     .research-icon {
       width: 48px;
       height: 48px;
-      background: rgba(232, 93, 4, 0.1);
+      background: rgba(232, 163, 23, 0.1);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
@@ -882,7 +882,7 @@
     
     /* Footer */
     .footer {
-      background: #FFFFFF;
+      background: var(--uapb-black);
       border-top: 4px solid var(--uapb-gold);
       padding: 24px 0;
       margin-top: 48px;
@@ -899,7 +899,7 @@
     
     .footer-left {
       font-size: 0.85rem;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.7);
     }
     
     .footer-links {
@@ -953,7 +953,7 @@
     </div>
   </header>
   
-  <!-- Main Navigation - Orange Bar -->
+  <!-- Main Navigation - Gold Bar -->
   <nav class="main-nav">
     <div class="nav-content">
       <button class="nav-tab active" data-tab="research">Research</button>
