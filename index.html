@@ -186,7 +186,7 @@
     /* Main Navigation - Gold Bar */
     .main-nav 
      {
-     background: var(--uapb-gold);
+     background: rgba(10, 15, 30, 0.55);
   position: relative;
   overflow: hidden;
     }
@@ -197,7 +197,7 @@
   min-width: 100%; min-height: 100%;
   width: auto; height: auto;
   z-index: 0;
-  opacity: 0.7;
+  opacity: 1;
   object-fit: cover;
   pointer-events: none;
 }
@@ -235,21 +235,21 @@
     }
     
     /* Sub Navigation for Species */
-    .sub-nav
-    {
-      background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-light);
+   /* Sub Navigation for Species */
+.sub-nav {
+  background: rgba(10, 15, 30, 0.55);
+  border-bottom: none;           /* ← remove the border line */
   position: relative;
   overflow: hidden;
-    }
-    
-    .sub-nav-content {
+}
+   .sub-nav-content {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 24px;
       display: flex;
       align-items: center;
       gap: 8px;
+      min-height: 110px;
     }
     
     .sub-nav-tab {
@@ -1002,7 +1002,7 @@
       </div>
       <div class="header-right">
         <div class="partners-block">
-          <span class="partners-eyebrow">Partners &amp; Collaborators</span>
+          <span class="partners-eyebrow"> Research Partners</span>
           <div class="partners-logos">
             <a href="https://aralliance.org" target="_blank" class="partner-logo-item" title="Arkansas Research Alliance">
               <img src="/static/ara-logo.png" alt="Arkansas Research Alliance">
@@ -1491,6 +1491,7 @@
   </script>
 </body>
 </html>
+
 
 
 
