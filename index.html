@@ -152,9 +152,28 @@
     .status-dot.offline { background: #EF4444; }
     
     /* Main Navigation - Gold Bar */
-    .main-nav {
-      background: var(--uapb-gold);
+    .main-nav 
+    <nav class="main-nav">
+  <video class="nav-video-bg" autoplay muted playsinline loop>
+    <source src="/static/gsla-video.mp4" type="video/mp4">
+  </video>
+  <div class="nav-content"> {
+     background: var(--uapb-gold);
+  position: relative;
+  overflow: hidden;
     }
+    .nav-video-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  z-index: 0;
+  opacity: 0.3;
+  object-fit: cover;
+  pointer-events: none;
+}
+.nav-content, .sub-nav-content { position: relative; z-index: 1; }
     
     .nav-content {
       max-width: 1400px;
@@ -188,9 +207,17 @@
     }
     
     /* Sub Navigation for Species */
-    .sub-nav {
+    .sub-nav
+    <nav class="sub-nav">
+  <video class="nav-video-bg" autoplay muted playsinline loop>
+    <source src="/static/gsla-video.mp4" type="video/mp4">
+  </video>
+  <div class="sub-nav-content">
+    {
       background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+  overflow: hidden;
     }
     
     .sub-nav-content {
@@ -934,7 +961,7 @@
     .partners-logos:hover { border-color: rgba(232,163,23,0.25); }
     .partner-logo-item { display: flex; align-items: center; justify-content: center; padding: 11px 22px; text-decoration: none; transition: background 0.2s ease; height: 64px; }
     .partner-logo-item:hover { background: rgba(255,255,255,0.07); }
-    .partner-logo-item img { height: 36px; width: auto; display: block; }
+    .partner-logo-item img { height: 46px; width: auto; display: block; }
     .partner-logo-item.gsla-item img { height: 45px; }
     .partner-divider { width: 1px; height: 32px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.15), transparent); flex-shrink: 0; }
   </style>
@@ -960,7 +987,7 @@
             <div class="partner-divider"></div>
 <a href="https://www.greatsaltlakeartemia.com" target="_blank" class="partner-logo-item gsla-item" title="Great Salt Lake Artemia">
   <img src="/static/gsla-logo.png" alt="Great Salt Lake Artemia">
-</a>
+</a> 
           </div>
         </div>
         <div class="status-badge">
@@ -1424,6 +1451,7 @@
   </script>
 </body>
 </html>
+
 
 
 
