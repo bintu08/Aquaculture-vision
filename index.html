@@ -77,10 +77,14 @@
 }
 
 .gsla-header .header-text p {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.7);
-  margin-top: 4px;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.95);  /* ← bright white, fully visible */
+  margin-top: 6px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
+
 
 /* ← Then line 62 continues with .header-content as normal */ 
     .header-content {
@@ -976,7 +980,7 @@
 
     .partners-block { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
     .partners-eyebrow { font-size: 0.52rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); padding-right: 3px; }
-    .partners-logos { display: flex; align-items: center; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.09); border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
+    .partners-logos { display: flex; align-items: center; background: transparent; border: none; border-radius: 12px; overflow: hidden; transition: border-color 0.2s; }
     .partners-logos:hover { border-color: rgba(232,163,23,0.25); }
     .partner-logo-item { display: flex; align-items: center; justify-content: center; padding: 11px 22px; text-decoration: none; transition: background 0.2s ease; height: 64px; }
     .partner-logo-item:hover { background: rgba(255,255,255,0.07); }
@@ -1019,7 +1023,7 @@
       <img src="static/gsla-header-logo.png" alt="GSLA Logo" class="dept-logo">
       <div class="header-text">
         <h1>The Artemia You Can Trust!</h1>
-        <p>Premium Artemia Supply & Research Collaboration</p>
+        <p>Highest Quality | Best Nutrition</p>
       </div>
     </div>
   </div>
@@ -1487,6 +1491,7 @@
   </script>
 </body>
 </html>
+
 
 
 
