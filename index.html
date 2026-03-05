@@ -57,8 +57,33 @@
       border-bottom: 4px solid var(--uapb-gold);
       box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
-    
-    
+    /* Line 59 - existing */
+}
+
+/* ← PASTE HERE starting at line 60 */
+/* GSLA Header */
+.gsla-header {
+  background: linear-gradient(to right, #1a3a4a 0%, #1a3a4a 55%, #2d5566 100%);
+  border-bottom: 4px solid #7BA7A0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.gsla-header .header-text h1 {
+  font-family: Oswald, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #A8D5CF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gsla-header .header-text p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+}
+
+/* ← Then line 62 continues with .header-content as normal */ 
     .header-content {
       max-width: 1400px;
       margin: 0 auto;
@@ -988,6 +1013,33 @@
       </div>
     </div>
   </header>
+  <!-- GSLA Header -->
+<header class="gsla-header">
+  <div class="header-content">
+    <div class="header-left">
+      <img src="static/gsla-header-logo.png" alt="GSLA Logo" class="dept-logo">
+      <div class="header-text">
+        <h1>Great Salt Lake Artemia</h1>
+        <p>Premium Artemia Supply & Research Collaboration</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="partners-block">
+        <span class="partners-eyebrow">Official Website</span>
+        <div class="partners-logos">
+          <a href="https://www.greatsaltlakeartemia.com" target="_blank"
+             class="partner-logo-item gsla-item" title="Great Salt Lake Artemia">
+            <img src="static/gsla-logo.png" alt="Great Salt Lake Artemia">
+          </a>
+        </div>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot online"></span>
+        <span>Partner Institution</span>
+      </div>
+    </div>
+  </div>
+</header>
   
   <!-- Main Navigation - Gold Bar -->
   <!-- Main Navigation - Gold Bar -->
@@ -1451,6 +1503,7 @@
   </script>
 </body>
 </html>
+
 
 
 
