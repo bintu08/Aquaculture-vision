@@ -67,12 +67,11 @@
   border-bottom: 4px solid #7BA7A0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
-
 .gsla-header .header-text h1 {
   font-family: Oswald, sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #A8D5CF;
+  color: var(--uapb-gold);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -93,6 +92,10 @@
       justify-content: space-between;
       min-height: 170px;
     }
+    .gsla-header .header-content {
+  min-height: 100px;   /* smaller than UAPB's 170px */
+}
+
     
     .header-left {
       display: flex;
@@ -1000,10 +1003,6 @@
             <a href="https://aralliance.org" target="_blank" class="partner-logo-item" title="Arkansas Research Alliance">
               <img src="/static/ara-logo.png" alt="Arkansas Research Alliance">
             </a>
-            <div class="partner-divider"></div>
-<a href="https://www.greatsaltlakeartemia.com" target="_blank" class="partner-logo-item gsla-item" title="Great Salt Lake Artemia">
-  <img src="/static/gsla-logo.png" alt="Great Salt Lake Artemia">
-</a> 
           </div>
         </div>
         <div class="status-badge">
@@ -1019,23 +1018,8 @@
     <div class="header-left">
       <img src="static/gsla-header-logo.png" alt="GSLA Logo" class="dept-logo">
       <div class="header-text">
-        <h1>Great Salt Lake Artemia</h1>
+        <h1>The Artemia You Can Trust!</h1>
         <p>Premium Artemia Supply & Research Collaboration</p>
-      </div>
-    </div>
-    <div class="header-right">
-      <div class="partners-block">
-        <span class="partners-eyebrow">Official Website</span>
-        <div class="partners-logos">
-          <a href="https://www.greatsaltlakeartemia.com" target="_blank"
-             class="partner-logo-item gsla-item" title="Great Salt Lake Artemia">
-            <img src="static/gsla-logo.png" alt="Great Salt Lake Artemia">
-          </a>
-        </div>
-      </div>
-      <div class="status-badge">
-        <span class="status-dot online"></span>
-        <span>Partner Institution</span>
       </div>
     </div>
   </div>
@@ -1503,6 +1487,7 @@
   </script>
 </body>
 </html>
+
 
 
 
