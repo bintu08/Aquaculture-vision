@@ -153,11 +153,7 @@
     
     /* Main Navigation - Gold Bar */
     .main-nav 
-    <nav class="main-nav">
-  <video class="nav-video-bg" autoplay muted playsinline loop>
-    <source src="/static/gsla-video.mp4" type="video/mp4">
-  </video>
-  <div class="nav-content"> {
+     {
      background: var(--uapb-gold);
   position: relative;
   overflow: hidden;
@@ -208,11 +204,6 @@
     
     /* Sub Navigation for Species */
     .sub-nav
-    <nav class="sub-nav">
-  <video class="nav-video-bg" autoplay muted playsinline loop>
-    <source src="/static/gsla-video.mp4" type="video/mp4">
-  </video>
-  <div class="sub-nav-content">
     {
       background: var(--bg-secondary);
   border-bottom: 1px solid var(--border-light);
@@ -999,18 +990,27 @@
   </header>
   
   <!-- Main Navigation - Gold Bar -->
-  <nav class="main-nav">
-    <div class="nav-content">
-      <button class="nav-tab active" data-tab="research">Research</button>
-      <button class="nav-tab" data-tab="extension">Extension</button>
-    </div>
-  </nav>
+  <!-- Main Navigation - Gold Bar -->
+<nav class="main-nav">
+  <video class="nav-video-bg" autoplay muted playsinline loop>
+    <source src="static/gsla-video.mp4" type="video/mp4">
+  </video>
+  <div class="nav-content">
+    <button class="nav-tab active" data-tab="research">Research</button>
+    <button class="nav-tab" data-tab="extension">Extension</button>
+  </div>
+</nav>
+
   
   <!-- Research Tab Content -->
   <div id="tab-research" class="tab-content active">
     <!-- Species Sub-Navigation -->
     <nav class="sub-nav">
-      <div class="sub-nav-content">
+        <video class="nav-video-bg" autoplay muted playsinline loop>
+    <source src="static/gsla-video.mp4" type="video/mp4">
+  </video>
+  <div class="sub-nav-content">
+
         <button class="sub-nav-tab active" data-species="vannamei">
           <span class="scientific-name">L. vannamei</span>
           <span class="common-name">(Pacific White Shrimp)</span>
@@ -1451,6 +1451,7 @@
   </script>
 </body>
 </html>
+
 
 
 
