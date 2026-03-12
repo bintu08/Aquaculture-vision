@@ -40,6 +40,10 @@
       --radius-lg: 16px;
       --radius-full: 9999px;
     }
+    .nav-wrapper {
+  position: relative;
+  overflow: hidden;
+}
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
     
@@ -1027,10 +1031,11 @@
   
   <!-- Main Navigation - Gold Bar -->
   <!-- Main Navigation - Gold Bar -->
-<nav class="main-nav">
+<div class="nav-wrapper">
   <video class="nav-video-bg" autoplay muted playsinline loop>
     <source src="static/gsla-video.mp4" type="video/mp4">
   </video>
+<nav class="main-nav">
   <div class="nav-content">
     <button class="nav-tab active" data-tab="research">Research</button>
     <button class="nav-tab" data-tab="extension">Extension</button>
@@ -1039,11 +1044,7 @@
 
   
   <!-- Research Tab Content -->
-  <div id="tab-research" class="tab-content active">
-    <!-- Species Sub-Navigation -->
-    <nav class="sub-nav">
-        <video class="nav-video-bg" autoplay muted playsinline loop>
-    <source src="static/gsla-video.mp4" type="video/mp4">
+  <nav class="sub-nav">
   </video>
   <div class="sub-nav-content">
 
@@ -1065,6 +1066,9 @@
         </button>
       </div>
     </nav>
+  </div><!-- end nav-wrapper -->
+
+<div id="tab-research" class="tab-content active">
     
     <!-- Species Analysis Panels -->
     <div id="species-vannamei" class="species-content active">
@@ -1487,6 +1491,7 @@
   </script>
 </body>
 </html>
+
 
 
 
