@@ -2,8 +2,9 @@ fastapi
 uvicorn[standard]
 ultralytics
 opencv-python-headless
+python-multipart
+Pillow
 numpy
 matplotlib
-pillow
-python-multipart
+requests
 gdown
